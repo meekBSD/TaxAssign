@@ -1,4 +1,14 @@
-
+/**
+ *  Use Awk
+ *  awk -F"\t" 'NR==FNR \
+ *             {val[$1]=$3;next}; \
+ *             {if($3 in val)print $0"\t"val[$3];else print $0"\tNone"}' taxonomy_name.txt result1.txt > tax_result1.txt
+ * 
+ *  awk -F"\t" 'NR==FNR \
+ *             {val[$2]=$3;next}; \
+ *             {if($3 in val)print $0"\t"val[$3];else print $0"\t-"}' phylum_tax.txt tax_result1.txt > tax_result2.txt
+ * 
+ * */
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
