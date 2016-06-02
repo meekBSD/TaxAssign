@@ -54,6 +54,10 @@ public class getTaxID3 {
 	}
 
 	public static void main(String[] args) throws IOException{
+		if (args.length != 2) {
+			System.out.println("USAGE: java getTaxID3 sourcefile1 sourcefile2");
+			System.exit(0);
+		}
 		File in = new File(args[0]);
 		HashMap<String, String> IDContig = getAccNum(in);
 		//Set<Entry<String, String>> idTaxSet = IDContig.entrySet();
