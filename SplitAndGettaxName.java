@@ -1,5 +1,6 @@
 /**
     *  sed '1d' result_p.txt | awk -F ';' '{for(i=1;i<=NF;i++){printf("%s\n",$i)}}' | sort | uniq > Taxnames_test.txt
+    *  sed '1d' result_p.txt | awk '{split($1,a,";");for(i=1;i<=length(a);i++)print a[i];}' > Taxnames_test.txt
     *  The Taxnames_test.txt stored ID of some tax. It will be read as input for the following java codes. 
     *  Another input file is the taxdmp/names.dmp file.
     */
