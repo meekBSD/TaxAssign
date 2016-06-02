@@ -1,21 +1,14 @@
-import java.io.BufferedOutputStream;
-import java.io.FileInputStream;
+
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.Scanner;
 
 public class TestTaxonomyOutput {
 	public static String concat2(String s1, String s2){
@@ -60,7 +53,6 @@ public class TestTaxonomyOutput {
 				String[] colsArr1 = line.split("\\t");
 				if (taxId.contains(colsArr1[0])) {
 					re.put(colsArr1[0], colsArr1[2]);
-                                //String v1 = concat2(colsArr[0] , colsArr[1]);
 				}
 			}
 		
@@ -88,8 +80,10 @@ public class TestTaxonomyOutput {
                                 
                                 if (re.containsKey(colsArr2[2])) {
                                         resFile.write(v1 + "\t" + colsArr2[2] + "\t" + re.get(colsArr2[2])+"\n");
+                                        // resFile.write(line + "\t" + re.get(colsArr2[2]) + "\n");
                                 } else {
 					resFile.write(v1 + "\t" + colsArr2[2] + "\t" + "None"+"\n");
+					// resFile.write(line + "\t-\n");
 				}
                         }
 
@@ -109,7 +103,7 @@ public class TestTaxonomyOutput {
 	}
 
 	public static void main(String[] args) throws IOException{
-		getAccNum("/home/qiaozy/B3_ESS/Conserved_pro/archaea/result1.txt","/home/qiaozy/giPro2tax/taxonomy_name.txt","result_testjava.txt");
+		getAccNum("testInputFile1","taxonomy_name.txt","test_outputfile.txt");
 
 	}
 }
