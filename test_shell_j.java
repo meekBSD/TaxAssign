@@ -20,7 +20,7 @@ private static final String basePath = "/Users/EK/Downloads/";
 //记录Shell执行状况的日志文件的位置(绝对路径)  
 private static final String executeShellLogFile = basePath + "executeShell.log";  
   
-//发送文件到系统的Shell的文件名(绝对路径)  
+//发送到shell命令的文件名(绝对路径)  
 private static final String sendKondorShellName = basePath + "sendKondorFile.sh";  
   
 public int executeShell(String shellCommand) throws IOException {  
