@@ -18,10 +18,10 @@ class JavaShellUtil {
 private static final String basePath = "/Users/EK/Downloads/";  
   
 //记录Shell执行状况的日志文件的位置(绝对路径)  
-private static final String executeShellLogFile = basePath + "executeShell.log";  
+private static final String executeShellLogFile = basePath + "Output_Shell.log";  
   
 //发送到shell命令的文件名(绝对路径)  
-private static final String sendKondorShellName = basePath + "sendKondorFile.sh";  
+private static final String sendKondorShellName = basePath + "test_bash_function.sh";  
   
 public int executeShell(String shellCommand) throws IOException {  
      Logger log = Logger.getLogger("lavasoft"); 
