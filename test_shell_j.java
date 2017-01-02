@@ -14,35 +14,38 @@ import java.util.logging.Logger;
 import java.util.logging.Level;
 
 class JavaShellUtil {  
-//基本路径  
-private static final String basePath = "/Users/EK/Downloads/";  
   
-//记录Shell执行状况的日志文件的位置(绝对路径)  
-private static final String executeShellLogFile = basePath + "Output_Shell.log";  
+    //基本路径  
+    private static final String basePath = "/Users/EK/Downloads/";  
   
-//发送到shell命令的文件名(绝对路径)  
-private static final String sendKondorShellName = basePath + "test_bash_function.sh";  
+    //记录Shell执行状况的日志文件的位置(绝对路径)  
+    private static final String executeShellLogFile = basePath + "Output_Shell.log";  
   
-public int executeShell(String shellCommand) throws IOException {  
-     Logger log = Logger.getLogger("lavasoft"); 
-     log.setLevel(Level.INFO);
+    //发送到shell命令的文件名(绝对路径)  
+    private static final String sendKondorShellName = basePath + "test_bash_function.sh";  
+  
+    public int executeShell(String shellCommand) throws IOException {  
+      
+        Logger log = Logger.getLogger("lavasoft"); 
+        log.setLevel(Level.INFO);
         Process process = null;  
         List<String> processList = new ArrayList<String>();  
         try {
             try{  
-            //process = Runtime.getRuntime().exec("ps -aux");
-            process = Runtime.getRuntime().exec(shellCommand);
-            process.waitFor(); 
-            int exitValue = process.waitFor();
-            if (0 != exitValue) {
-                log.info("call shell failed. error code is :" + exitValue);
-            }
+                //process = Runtime.getRuntime().exec("ps -aux");
+                process = Runtime.getRuntime().exec(shellCommand);
+                process.waitFor(); 
+                int exitValue = process.waitFor();
+                if (0 != exitValue) {
+                    log.info("call shell failed. error code is :" + exitValue);
+                }
             } catch (Throwable e) {
                 process.getOutputStream().close();
                 process.getInputStream().close();
                 process.getErrorStream().close();
                 log.info("call shell failed. " + e);
             } 
+          
             BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));  
             FileOutputStream out = new FileOutputStream(executeShellLogFile);
             String line = "";  
@@ -57,8 +60,8 @@ public int executeShell(String shellCommand) throws IOException {
             e.printStackTrace();  
         }  
 
-    return 0;
-}  
+        return 0;
+    }  
   
 }
 
